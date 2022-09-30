@@ -1,0 +1,162 @@
+﻿<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>图书馆预约</title>
+		<link rel="stylesheet" type="text/css" href="./resource/css/style.css">
+		<style>
+			.lock:hover {
+				background-color: red;
+			}
+		</style>
+		<script src="./resource/js/dingtalk.open.js"></script>
+		<script src="./resource/js/utils.js"></script>
+		<script src="./resource/js/service.js"></script>
+		<script src="./resource/js/render.js"></script>
+	</head>
+	<body>
+		<div class="topRight">你好，<div class="modify-area" contenteditable="true" id='id-input-name' style="display:inline-block;min-width:20px;border:none;font: inherit;font-size: inherit;color: inherit;font-size: inherit;"></div></div>
+		<div id="id-update-log" class="topRight" style="margin-top: 20px;"><a href="javascript:void(0)" onclick="showGXRZ()">更新日志</a></div>
+		<div class="title"><p>哈尔滨金融学院</p><p>图书馆预约系统</p></div>
+		<div id="id-pre" class="content">
+			<div style="margin-top: 20px;margin-left:20px;margin-right:20px;text-align: left;">
+				<span style="color: red">提示：一桌一人，按预约区域就座。佩戴口罩！严禁在馆内进食！违反规定者取消入馆资格。</span>
+			</div>
+			<div>
+				<form id="form1" method="post">
+					<input id="xhzgh" type="hidden" name="xhzgh" value="19103090343">
+					<input id="xm" type="hidden" name="xm" value="罗根生">
+					<table class="queryTable">
+						<tbody>
+							<tr>
+								<td>
+
+									<select id="sj" disabled="disabled" class="tsgTextInput" name="">
+										<!-- <option value="0">时间</option>
+										<option value="sw">今天上午(07:00-12:00)</option>
+										<option value="xw">今天下午(12:00-16:00)</option>
+										<option value="ws">今天晚上(16:00-21:30)</option> -->
+										<option value="qt">今天全天(07:00-21:30)</option>
+									</select>
+									<input type="hidden" name="sj" value="qt">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<select id="qy" class="tsgTextInput" name="qy" onclick="showQY()">
+										<option value="0">区域</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p id="sm">
+									
+									&nbsp;
+									
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="yyButton" class="cxButton" type="button" onclick="tsgyy()" value="预    约">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a class="cxButton" onclick="enter()">我要进馆</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-top: 100px;">
+									上划屏幕查看平面图
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-top: 100px;">
+									<img src="./resource/img/2f.png" class="pingmiantu">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="./resource/img/3f.png" class="pingmiantu">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="./resource/img/4f.png" class="pingmiantu">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="./resource/img/5f.png" class="pingmiantu">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+
+		<div id="id-qr" style="display: none;">
+			<div class="content">
+				<div>
+					<p id="timeP" class="jgsj"></p>
+				</div>
+
+				<div id="imgDiv">
+					<img src="./resource/img/green.png" class="wyjgPic">
+				</div>
+
+				<table id="hxTable" style="width: 100%;font-size: 35px; display: none;">
+					<tr>
+						<td style="width: 35%;text-align: right;"><img src="./resource/img/green.png" width="80px"/></td>
+						<td style="text-align: left;">已展示凭证</td>
+					</tr>
+					<tr>
+						<td id="hxImg" style="width: 35%;text-align: right;"><img src="./resource/img/yellow.png" width="80px"/></td>
+						<td id="hxMessage" style="text-align: left;">正在核销...</td>
+					</tr>
+				</table>
+
+				<div id="messageDiv">
+					<div class="jgsj" style="margin: 20px auto;">
+						<p class="modify-area" contenteditable="true" id="id-stu-info" style="
+						min-width:50px;border:none;font: inherit;font-size: 30px;
+						color: inherit;margin: 0px;"></p>
+						<p style="font-size: 30px;margin: 0;">欢迎您进入</p>
+						<p style="font-size: 30px;margin: 0;" id="id-area">
+							四楼：西南（马列）
+						</p>
+					</div>
+				</div>
+
+				<div id="hxButtonDiv" style="display: none; margin: 10px auto;">
+					<input id="hxButton" class="cxButton" type="button" onclick="hxpz()" value="核销凭证">
+				</div>
+
+				<div id="id-modify-choose-area" style="margin-top: 20px">
+					<select id="id-select-area" style="width: fit-content;padding: 0 1%;margin: 0;color: white;-moz-font: inherit;-webkit-font: inherit;font: inherit;background: white;-webkit-appearance: none;-moz-appearance: none;appearance: none;border: none;font: inherit;text-align: center;">
+						<option id="id-2lxn" value="2ln">二楼：西南（文学、艺术）</option>
+						<option id="id-2ldn" value="2ldn">二楼：东南（中国文学）</option>
+						<option id="id-2lkyq" value="2lkyq">二楼：考研学习区（限本人座位）</option>
+						<option id="id-3lxn" value="3lxn">三楼：西南（农业经济）</option>
+						<option id="id-3ldn" value="3ldn">三楼：东南（经济学）</option>
+						<option id="id-3lz" value="3lz">三楼：中（大厅侧）</option>
+						<option id="id-3lxb" value="3lxb">三楼：西北（特色文献）</option>
+						<option id="id-3lkyq" value="3lkyq">三楼：考研学习区（限本人座位）</option>
+						<option id="id-4lxn" value="4lxn">四楼：西南（马列）</option>
+						<option id="id-4ldn" value="4ldn">四楼：东南（法律）</option>
+						<option id="id-4lz" value="4lz">四楼：中（大厅侧）</option>
+						<option id="id-4lxb" value="4lxb">四楼：西北（外文）</option>
+						<option id="id-4lkyq" value="4lkyq">四楼：考研学习区（限本人座位）</option>
+						<option id="id-man" value="4lkyq">男浴池</option>
+						<option id="id-woman" value="4lnyc">女浴池</option>
+					</select>
+				</div>
+				
+				<div id="id-lock-toggle" class="lock" style="position: fixed;bottom: 0;width: 40px;height: 40px;"></div>
+			</div>
+		</div>
+	</body>
+</html>

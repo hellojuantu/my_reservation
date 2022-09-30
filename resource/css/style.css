@@ -1,0 +1,201 @@
+﻿body {
+	width:100%;
+	height:100%;
+	text-align:center;
+	margin:0px auto;
+	padding:0px;
+	font-style:normal;
+	font-family: "宋体";
+	color:#5c5c5c;
+	background-color:#FFFFFF
+	position: relative;
+}
+td img,td input,td a,td span，td p{ vertical-align:middle;}
+p{margin:20px auto;}
+a{text-decoration:none;display: inline-block;}
+.title{
+	width:100%;
+	font-size:35px;
+}
+.copyright{
+	width:100%;
+	line-height:2;
+	bottom:0px;
+	position: absolute;
+	font-size:30px;
+}
+.content{
+	width:100%;
+	height:70%;
+	position: absolute;
+}
+.topRight{
+    	position: absolute;
+   	right: 20px;
+}
+.topRight a.button{
+	display: block;
+	width: 80px;
+	border-radius: 10px;
+	text-decoration: none;
+	background-color: #1E90FF;
+	color:white;
+	padding: 10px 0px;
+	margin: 10px auto;
+}
+.topRight a.button:hover {
+	background: #5599FF;
+}
+.count{
+	margin:10px auto;
+}
+.queryConditions {
+	margin: 20px auto;
+}
+.listTable{border-collapse:collapse;width: 100%;border:2px solid #3366CC;}
+.listTable td{height:20px;border:1px solid #3366CC;}
+.listTable th{background-color: #87CEEB;border:solid 1px #3366CC;height:30px;font-size:20px;color:#000000;}
+.page{
+	width: 100%;
+	margin:0 auto;
+	text-align:center;
+	padding-top:15px;
+}
+.queryTable{text-align:center; absolute;width:100%;height:100%;border-collapse:collapse;font-size: 30px;}
+.queryTable tr{height:100px;}
+.queryTable td{padding:6px;}
+
+.textInput{
+	outline-style:none;
+	border: 1px solid #1E90FF;
+	border-radius: 20px;
+	padding: 20px 0px;
+	width:80%;
+	font-size: 30px;
+}
+.tsgTextInput{
+	width:60%;
+	outline-style:none;
+	border: 1px solid #1E90FF;
+	border-radius: 20px;
+	padding: 20px 0px;
+	font-size: 30px;
+}
+.cxButton{
+	width: 60%;
+	padding: 20px 0px;
+	border-width: 0px;
+	border-radius: 20px;
+	background: #1E90FF;
+	cursor: pointer;
+	outline: none;
+	font-family: Microsoft YaHei;
+	color: white;
+	font-size: 35px;
+}
+.cxButton:hover {
+	background: #5599FF;
+}
+.resultTable{position: absolute;width:90%;height:100%;border-collapse:collapse;font-size: 30px;border:2px solid #3366CC;left:0;right:0;margin:auto;}
+.resultTable tr{height:10%;}
+.resultTable td{padding:6px;border:1px solid #3366CC;}
+.resultTable th{width:38%;background-color: #87CEEB;border:solid 1px #3366CC;height:30px;color:#000000;}
+.pageA{
+	display:inline-block;
+	text-decoration:none;
+	border:1px solid #e1e2e3;
+	width:34px;
+	height:34px;
+	line-height:34px;
+	margin-right: 9px;
+}
+.pageSpan{
+	display:inline-block;
+	width:34px;
+	height:34px;
+	line-height:34px;
+	margin-right: 9px;
+}
+.pageAB{
+	display:inline-block;
+	text-decoration:none;
+	border:1px solid #e1e2e3;
+	padding: 0 18px;
+	height:34px;
+	line-height:34px;
+	margin-right: 9px;
+}
+.messagePic{
+	width: 40px;
+}
+.wyjgPic{
+	width: 250px;
+}
+.jgsj{
+	font-size: 30px;
+}
+/*通用样式*/
+/*手机*/
+@media screen and (max-width:600px){
+	.title{
+		display:none;
+	}
+	.content{
+		margin-top: 30px;
+	}
+	.tsgTextInput{
+		padding: 15px 0px;
+		font-size: 20px;
+	}
+	.cxButton{
+		padding: 15px 0px;
+		font-size: 25px;
+		text-align: center;
+	}
+	.pingmiantu{
+		width:350px;
+	}
+}
+/*平板*/
+@media screen and (min-width:600px) and (max-width:960px){}
+/*PC*/
+@media screen and (min-width:960px){}
+/* Switch开关样式 */
+/* 必须是input为 checkbox class 添加 switch 才能实现以下效果 */
+input[type='checkbox'].switch{
+	outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 10px;
+    transition: border-color .3s, background-color .3s;
+}
+
+input[type='checkbox'].switch::after {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height:1rem;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0, 0, 2px, #999;
+    transition:.4s;
+    top: 2px;
+    position: absolute;
+    left: 2px;
+}
+
+input[type='checkbox'].switch:checked {
+    background: rgb(19, 206, 102);
+}
+/* 当input[type=checkbox]被选中时：伪元素显示下面样式 位置发生变化 */
+input[type='checkbox'].switch:checked::after {
+    content: '';
+    position: absolute;
+    left: 55%;
+    top: 2px;
+}
